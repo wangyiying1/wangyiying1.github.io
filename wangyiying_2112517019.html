@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYU | Material-driven Design</title>
+    <!-- 引入更具设计感的衬线体与无衬线体组合 -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Noto+Serif+SC:wght@300;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fcfcfc;
+            --text-main: #1a1a1a;
+            --text-secondary: #666;
+            --accent: #92cd71; /* 使用你品牌色中的绿色作为点缀 */
+            --transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Serif SC', serif;
+            background-color: var(--bg-color);
+            /* 增加微弱的纸张质感底纹 */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 100px auto;
+            padding: 0 40px;
+        }
+
+        /* 头部设计：更加通透与高级 */
+        .header {
+            text-align: left; /* 改为左对齐增加现代感 */
+            margin-bottom: 120px;
+            border-left: 1px solid #eee;
+            padding-left: 30px;
+        }
+
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .header p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+
+        /* 栅格布局：打破单一的卡片堆叠 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s forwards ease-out;
+        }
+
+        /* 针对不同位置的动画延迟 */
+        .section:nth-child(1) { animation-delay: 0.2s; }
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: '';
+            width: 12px;
+            height: 1px;
+            background: var(--accent);
+            margin-right: 15px;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: #444;
+        }
+
+        /* 列表修饰 */
+        ul { list-style: none; }
+        li {
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px thin transparent;
+            transition: var(--transition);
+        }
+
+        li:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        /* 联系方式：简约风格 */
+        .contact-info p {
+            margin-bottom: 5px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+        }
+
+        .footer {
+            margin-top: 100px;
+            padding: 40px 0;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #bbb;
+            text-transform: uppercase;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+            .header h1 { font-size: 2.2rem; }
+            .container { margin: 60px auto; }
+        }
+
+        /* 装饰性元素：背景圆圈 */
+        .bg-circle {
+            position: fixed;
+            top: -10%;
+            right: -5%;
+            width: 40vw;
+            height: 40vw;
+            background: radial-gradient(circle, rgba(146,205,113,0.05) 0%, rgba(255,255,255,0) 70%);
+            z-index: -1;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-circle"></div>
+
+<div class="container">
+
+    <header class="header">
+        <h1>AYU</h1>
+        <p>Material-driven Design & Sustainability Consultant</p>
+    </header>
+
+    <main class="grid">
+        <!-- 关于我 -->
+        <section class="section">
+            <h2>关于我 / PROLOGUE</h2>
+            <p>
+                你好，我是王奕颖。<br>
+                在设计语境中，我不仅关注物的外形，更致力于挖掘<strong>材料的时间性</strong>与<strong>触觉逻辑</strong>。
+                我坚信通过对废弃介质的重构，可以建立起一种更具温度的人机感知关系。
+            </p>
+        </section>
+
+        <!-- 研究方向 -->
+        <section class="section">
+            <h2>研究方向 / RESEARCH</h2>
+            <ul>
+                <li>Material-Driven Design (MDD)</li>
+                <li>Upcycling & Waste Transformation</li>
+                <li>Sensory Experience & Inclusive Design</li>
+            </ul>
+        </section>
+
+        <!-- 项目展示 -->
+        <section class="section">
+            <h2>核心项目 / PROJECTS</h2>
+            <ul>
+                <li><strong>Hygroscopic Pulp</strong> - 湿度感应纸浆器物</li>
+                <li><strong>Bagasse Study</strong> - 甘蔗渣声学材料转化</li>
+                <li><strong>Tactile Vessel</strong> - 视障友好交互容器</li>
+            </ul>
+        </section>
+
+        <!-- 联系方式 -->
+        <section class="section contact-info">
+            <h2>联系 / CONTACT</h2>
+            <p>Email: 1824923623@qq.com</p>
+            <p>Behance: @123457890</p>
+            <p>Location: guangzhou, China</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 AYU — Designed with tactile intent</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
